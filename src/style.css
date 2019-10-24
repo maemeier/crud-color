@@ -1,0 +1,160 @@
+body {
+  background-color: #e1e3ed;
+}
+.wrapper {
+  height: 1000px;
+  border-radius: 10px;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+h2 {
+  position: relative;
+  text-align: center;
+  margin-top: 100px;
+  text-transform: uppercase;
+  color: #102f63;
+  padding-top: 60px;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  margin-top: 50px;
+}
+
+.inputBox {
+  background-color: white;
+  width: auto;
+  height: 200px;
+  margin-left: 50px;
+  border-radius: 5px;
+  box-shadow: 9px 11px 5px -7px rgba(0, 0, 0, 0.21);
+  -webkit-box-shadow: 9px 11px 5px -7px rgba(0, 0, 0, 0.21);
+  -moz-box-shadow: 9px 11px 5px -7px rgba(0, 0, 0, 0.21);
+}
+
+input {
+  border-style: hidden;
+  border-radius: 7px;
+  outline: none;
+  background-color: #f3f5fa;
+  width: 100px;
+  height: 20px;
+  padding-left: 10px;
+  margin-left: 10px;
+}
+
+.addProduct {
+  width: 200px;
+}
+.displayBox {
+  background-color: #eff1f4;
+  width: auto;
+  height: auto;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+.form {
+  margin-left: 30px;
+  margin-bottom: 10px;
+  background-color: none;
+}
+li {
+}
+
+p {
+  margin: auto;
+  padding-top: 20px;
+  margin-bottom: 15px;
+  text-align: center;
+  font-weight: bold;
+  color: #102f63;
+  text-transform: uppercase;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.headerName {
+  text-align: center;
+}
+strong {
+  margin-top: 20px;
+  color: #102f63;
+}
+.descriptionName {
+  text-align: center;
+}
+
+td {
+  text-align: left;
+  padding: 8px;
+  text-align: center;
+  height: 30px;
+}
+
+th {
+  text-align: left;
+  padding: 8px;
+  background-color: #426bdf;
+  color: white;
+}
+
+tr:nth-child(even) {
+  background-color: #ffffff;
+}
+
+.editButton {
+  background: #5b616f;
+
+  border-radius: 3px;
+  color: white;
+  display: block;
+  margin: auto;
+  font-size: 13px;
+  border: none;
+}
+
+.editData {
+  background-color: #40444d;
+  color: white;
+  font-weight: bold;
+  padding-left: 10px;
+}
+
+.deleteButton {
+  background: tomato;
+  border-radius: 3px;
+  color: white;
+  display: block;
+  margin: auto;
+  font-size: 13px;
+  border: none;
+}
+
+.updateButton {
+  background: #4d7902;
+  border-radius: 3px;
+
+  color: white;
+  display: block;
+  margin: auto;
+  font-size: 13px;
+  border: none;
+}
+
+.submitButton {
+  background: #426bdf;
+  border-radius: 3px;
+  color: white;
+  display: block;
+  margin-left: 30px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  font-size: 13px;
+  border: none;
+}
