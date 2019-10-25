@@ -46,11 +46,12 @@ class App extends Component {
     // check if name is nameIsAvailable
     let nameIsAvailable = false;
     colorLists.forEach(x => {
-      if (x.domainColor === domainColor && x.rangeColor === rangeColor)
-        nameIsAvailable = true;
-      // if (x.rangeColor === rangeColor) nameIsAvailable = true;
-      // if (x.domainColor === rangeColor) nameIsAvailable = true;
-      // if (x.rangeColor === domainColor) nameIsAvailable = true;
+      //avoid duplicate domain color and Fork
+      if (x.domainColor === domainColor) nameIsAvailable = true;
+      // Block cycle
+      if (x.domainColor === rangeColor) nameIsAvailable = true;
+      // Block Chains
+      if (x.rangeColor === domainColor) nameIsAvailable = true;
     });
 
     if (!nameIsAvailable) {
