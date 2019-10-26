@@ -4,6 +4,7 @@ import "../style.css";
 class ProductItem extends Component {
   state = {
     isUpdated: false,
+    colorLists: this.props.colorLists,
     domainColor: this.props.domainColor,
     rangeColor: this.props.rangeColor
   };
@@ -23,6 +24,30 @@ class ProductItem extends Component {
     rangeColor,
     originalName
   ) => {
+    const { colorLists } = this.state;
+
+    // check if name is color already used
+    let nameIsAvailable = false;
+    colorLists.forEach(x => {
+      if (x.domainColor === domainColor) nameIsAvailable = true;
+      if (x.domainColor === rangeColor) nameIsAvailable = true;
+      if (x.rangeColor === domainColor) nameIsAvailable = true;
+    });
+
+    if (!nameIsAvailable) {
+      this.setState({
+        colorLists: [
+          ...this.state.colorLists,
+          {
+            domainColor,
+            rangeColor
+          }
+        ]
+      });
+    } else {
+      alert("The domain or range is already added 😊");
+    }
+
     this.setState({ isUpdated: true });
   };
 
@@ -66,7 +91,9 @@ class ProductItem extends Component {
                 defaultValue={rangeColor}
                 required
                 value={this.state.rangeColor}
-                onChange={e => this.handleInputChange("color", e.target.value)}
+                onChange={e =>
+                  this.handleInputChange("rangeColor", e.target.value)
+                }
               />
             </td>
 
