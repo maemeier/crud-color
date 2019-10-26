@@ -46,22 +46,14 @@ class App extends Component {
     const { colorLists } = this.state;
 
     // case sensitive
-    let domain = domainColor.trim().toLowerCase();
-    let range = rangeColor.trim().toLowerCase();
+    let domain = domainColor.toLowerCase();
+    let range = rangeColor.toLowerCase();
 
     // check if name is color already used
-    let nameIsAvailable = false;
-    colorLists.forEach(x => {
-      if (x.domainColor === domainColor) nameIsAvailable = true;
-      // Error Duplicate "This domain color is already added"
-      if (x.domainColor === rangeColor) nameIsAvailable = true;
-      // Error Fork "This domain color is already mactched with another range color"
-      if (x.rangeColor === domainColor) nameIsAvailable = true;
-      // Error Cycle ""
-      // Error Chain "This range color can't be used as domain color"
-    });
 
-    if (!nameIsAvailable) {
+    if (domainColor === domainColor) {
+      alert("Please add domain color && range color 😊");
+    } else {
       this.setState({
         colorLists: [
           ...this.state.colorLists,
@@ -71,8 +63,6 @@ class App extends Component {
           }
         ]
       });
-    } else {
-      alert("The domain or range is already added 😊");
     }
   };
 
