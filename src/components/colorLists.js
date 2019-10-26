@@ -45,6 +45,10 @@ class App extends Component {
   handleAddColor = (domainColor, rangeColor) => {
     const { colorLists } = this.state;
 
+    // case sensitive
+    let domain = domainColor.trim().toLowerCase();
+    let range = rangeColor.trim().toLowerCase();
+
     // check if name is color already used
     let nameIsAvailable = false;
     colorLists.forEach(x => {
