@@ -42,11 +42,11 @@ class App extends Component {
   }
 
   handleAddColor = (domainColor, rangeColor) => {
-    //check if user add domain or range color
-
+    // turn to lowercase
     let domain = domainColor.toLowerCase();
     let range = rangeColor.toLowerCase();
 
+    //check if user add domain or range color
     // block white space
     if (!(domainColor.length > 1 && rangeColor.length > 1)) {
       alert("Please add domain color && range color 😊");
@@ -99,10 +99,11 @@ class App extends Component {
     return result.length >= 1 ? true : false;
   }
 
+  //chain works sometime why??????
   isChain(domainColor) {
     const { colorLists } = this.state;
     let result = colorLists.filter(
-      elcolorList => elcolorList.rangeColor.toLowerCase() === domainColor
+      colorList => colorList.rangeColor.toLowerCase() === domainColor
     );
     return result.length >= 1 ? true : false;
   }
