@@ -86,11 +86,20 @@ class ListOfColor extends Component {
         colorList.rangeColor !== this.props.rangeColor
     );
 
-    //  add conditions (alert doesn't work!)
+    //  add conditions (now alert work!)
     if (!(domainColor.length > 1 && rangeColor.length > 1)) {
       alert("Domain and range color cannot be emtpy");
+    } else if (this.isDuplicate(domain, range, editColors)) {
+      //fix user can't save
+      alert("duplicate");
+    } else if (this.isFork(domain, editColors)) {
+      alert("Fork");
     } else {
-      this.props.handleEditSubmit(domainColor, rangeColor, domainColor);
+      this.props.handleEditSubmit(
+        domainColor,
+        rangeColor,
+        this.props.domainColor
+      );
       this.setState({ isUpdated: false });
     }
   };
