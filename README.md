@@ -3,6 +3,8 @@ DICTIONARY APP
 
 <img width="1319" alt="ภาพหน้าจอ 2019-10-27 เวลา 18 32 00" src="https://user-images.githubusercontent.com/29822960/67638793-00713b80-f8e9-11e9-8eda-db35cbe5f789.png">
 
+<h5> Check duplicate doman and range colors </h5>
+<img width="1318" alt="ภาพหน้าจอ 2019-10-27 เวลา 18 32 26" src="https://user-images.githubusercontent.com/29822960/67638826-39a9ab80-f8e9-11e9-9326-72b9aabe8e5d.png">
 
 
 
