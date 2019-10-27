@@ -106,7 +106,7 @@ class listOfColors extends Component {
     return result.length >= 1 ? true : false;
   }
 
-  //chain works sometime why??????
+  //finally chain work T T
   isChain(domainColor) {
     const { colorLists } = this.state;
     let result = colorLists.filter(
