@@ -39,28 +39,27 @@ h2 {
 .inputBox {
   background-color: white;
   width: auto;
-  height: 200px;
+  height: 230px;
   margin-left: 50px;
   border-radius: 5px;
 }
 
 input {
   border-style: hidden;
-  border-radius: 7px;
+  border-radius: 3px;
   outline: none;
   background-color: #f3f5fa;
-  width: 100px;
+  width: 150px;
   height: 25px;
   padding-left: 10px;
-  float: right;
-  clear: both;
-  margin-right: 45px;
-  margin-top: 1px;
+  display: block;
+  direction: ltr;
+  margin-top: 3px;
   padding-top: 3px;
 }
 
 .addProduct {
-  width: 200px;
+  width: 285px;
 }
 .displayBox {
   background-color: #eff1f4;
@@ -97,7 +96,6 @@ table {
   text-align: center;
 }
 strong {
-  margin-top: 2px;
   color: #102f63;
 }
 
