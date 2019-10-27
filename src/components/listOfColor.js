@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "../style.css";
 
-class ProductItem extends Component {
+class ListOfColor extends Component {
   state = {
     isUpdated: false,
     colorLists: this.props.colorLists,
@@ -14,7 +14,7 @@ class ProductItem extends Component {
     handleDeleteColor(domainColor);
   };
 
-  handleUpdateProduct = () => {
+  handleUpdateColor = () => {
     this.setState({ isUpdated: true });
   };
 
@@ -26,7 +26,7 @@ class ProductItem extends Component {
   ) => {
     const { colorLists } = this.state;
 
-    // check if name is color already used
+    // move all conditions here
     let nameIsAvailable = false;
     colorLists.forEach(x => {
       if (x.domainColor === domainColor) nameIsAvailable = true;
@@ -126,4 +126,4 @@ class ProductItem extends Component {
     );
   }
 }
-export default ProductItem;
+export default ListOfColor;

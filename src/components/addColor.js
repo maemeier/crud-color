@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "../style.css";
 
-class addProduct extends Component {
+class addColor extends Component {
   onSubmit = event => {
     event.preventDefault();
     this.props.handleAddColor(this.nameInput.value, this.colorInput.value);
@@ -44,4 +44,4 @@ class addProduct extends Component {
   }
 }
 
-export default addProduct;
+export default addColor;

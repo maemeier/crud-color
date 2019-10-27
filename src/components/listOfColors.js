@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import ProductItem from "./productItem";
-import Addproduct from "./addProduct";
+import ListOfColor from "./listOfColor";
+import AddColor from "./addColor";
 
 import "../style.css";
 
@@ -14,7 +14,7 @@ const colorLists = [
 
 // check color function
 
-class App extends Component {
+class listOfColors extends Component {
   state = {
     colorLists: []
   };
@@ -31,6 +31,7 @@ class App extends Component {
       this.setState({
         colorLists
       });
+      console.log(colorLists);
     }
   }
   componentWillMount() {
@@ -47,17 +48,21 @@ class App extends Component {
     let range = rangeColor.toLowerCase();
 
     //check if user add domain or range color
-    // block white space
+
     if (!(domainColor.length > 1 && rangeColor.length > 1)) {
-      alert("Please add domain color && range color 😊");
+      alert("Domain and range cannot be empty 😊");
     } else if (this.isDuplicate(domain, range)) {
-      alert("Duplicate 😊");
+      alert("Both domain and range color entered are already added before");
     } else if (this.isFork(domain)) {
-      alert("Fork 😊");
+      alert(
+        "The domain color entered are already in use with another range color "
+      );
     } else if (this.isCycle(domain, range)) {
-      alert("Cycle 😊");
+      alert(
+        "Both domain and range color entered are already in use as a mapped pair combination"
+      );
     } else if (this.isChain(domain)) {
-      alert("Chain 😊");
+      alert("The domain color entered is already in use as range color");
     } else {
       this.setState({
         colorLists: [
@@ -78,6 +83,7 @@ class App extends Component {
         colorList.domainColor.toLowerCase() === domainColor &&
         colorList.rangeColor.toLowerCase() === rangeColor
     );
+
     return result.length >= 1 ? true : false;
   }
 
@@ -110,23 +116,23 @@ class App extends Component {
 
   handleEditSubmit = (domainColor, rangeColor, originalName) => {
     const { colorLists } = this.state;
-    const updatedProducts = colorLists.map(colorList => {
+    const updatedColors = colorLists.map(colorList => {
       if (colorList.domainColor === originalName) {
         colorList.domainColor = domainColor;
         colorList.rangeColor = rangeColor;
       }
       return colorList;
     });
-    console.log(updatedProducts);
+    console.log(updatedColors);
 
-    this.setState({ colorLists: updatedProducts });
+    this.setState({ colorLists: updatedColors });
   };
 
   handleDeleteColor = domainColor => {
-    const deleteProduct = this.state.colorLists.filter(colorList => {
+    const deleteColor = this.state.colorLists.filter(colorList => {
       return colorList.domainColor !== domainColor;
     });
-    this.setState({ colorLists: deleteProduct });
+    this.setState({ colorLists: deleteColor });
   };
 
   render() {
@@ -134,7 +140,7 @@ class App extends Component {
       <div>
         <div className="wrapper">
           <div className="container">
-            <Addproduct handleAddColor={this.handleAddColor} />
+            <AddColor handleAddColor={this.handleAddColor} />
             <div className="displayBox">
               <table>
                 <thead>
@@ -148,7 +154,7 @@ class App extends Component {
                 {this.state.colorLists.map(colorList => {
                   return (
                     <tr>
-                      <ProductItem
+                      <ListOfColor
                         key={colorList.domainColor}
                         domainColor={colorList.domainColor}
                         rangeColor={colorList.rangeColor}
@@ -167,4 +173,4 @@ class App extends Component {
     );
   }
 }
-export default App;
+export default listOfColors;

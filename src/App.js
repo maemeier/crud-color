@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import ColorLists from "./components/colorLists";
+import ListOfColors from "./components/listOfColors";
 import Header from "./components/header";
 import "./style.css";
 
@@ -8,7 +8,7 @@ class App extends Component {
     return (
       <div>
         <Header />
-        <ColorLists />
+        <ListOfColors />
       </div>
     );
   }
