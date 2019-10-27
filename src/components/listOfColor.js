@@ -149,6 +149,11 @@ class ListOfColor extends Component {
                 Save
               </button>
             </td>
+            <td>
+              <button className="deleteButton" onClick={this.handleDeleteColor}>
+                Delete
+              </button>
+            </td>
             <td></td>
           </React.Fragment>
         ) : (
