@@ -43,16 +43,21 @@ class App extends Component {
 
   handleAddColor = (domainColor, rangeColor) => {
     //check if user add domain or range color
+
+    let domain = domainColor.toLowerCase();
+    let range = rangeColor.toLowerCase();
+
+    // block white space
     if (!(domainColor.length > 1 && rangeColor.length > 1)) {
       alert("Please add domain color && range color 😊");
-    } else if (this.isCycle(domainColor, rangeColor)) {
-      alert("cycle");
-    } else if (this.isDuplicate(domainColor, rangeColor)) {
-      alert("duplicate");
-    } else if (this.isChain(rangeColor)) {
-      alert("chain");
-    } else if (this.isFork(domainColor)) {
-      alert("fork");
+    } else if (this.isDuplicate(domain, range)) {
+      alert("Duplicate 😊");
+    } else if (this.isFork(domain)) {
+      alert("Fork 😊");
+    } else if (this.isCycle(domain, range)) {
+      alert("Cycle 😊");
+    } else if (this.isChain(domain)) {
+      alert("Chain 😊");
     } else {
       this.setState({
         colorLists: [
@@ -68,38 +73,38 @@ class App extends Component {
 
   isDuplicate(domainColor, rangeColor) {
     const { colorLists } = this.state;
-    let checkDuplicate = colorLists.filter(
+    let result = colorLists.filter(
       colorList =>
-        colorList.domainColor === domainColor &&
-        colorList.rangeColor === rangeColor
+        colorList.domainColor.toLowerCase() === domainColor &&
+        colorList.rangeColor.toLowerCase() === rangeColor
     );
-    return checkDuplicate;
-  }
-
-  isCycle(domainColor, rangeColor) {
-    const { colorLists } = this.state;
-    let checkCycle = colorLists.filter(
-      colorList =>
-        colorList.domainColor === rangeColor &&
-        colorList.rangeColor === domainColor
-    );
-    return checkCycle;
-  }
-
-  isChain(domainColor) {
-    const { colorLists } = this.state;
-    let checkChain = colorLists.filter(
-      colorList => colorList.rangeColor === domainColor
-    );
-    return checkChain;
+    return result.length >= 1 ? true : false;
   }
 
   isFork(domainColor) {
     const { colorLists } = this.state;
-    let checkFork = colorLists.filter(
-      colorList => colorList.domainColor === domainColor
+    let result = colorLists.filter(
+      elcolorList => elcolorList.domainColor.toLowerCase() === domainColor
     );
-    return checkFork;
+    return result.length >= 1 ? true : false;
+  }
+
+  isCycle(domainColor, rangeColor) {
+    const { colorLists } = this.state;
+    let result = colorLists.filter(
+      elcolorList =>
+        elcolorList.domainColor.toLowerCase() === rangeColor &&
+        elcolorList.rangeColor.toLowerCase() === domainColor
+    );
+    return result.length >= 1 ? true : false;
+  }
+
+  isChain(domainColor) {
+    const { colorLists } = this.state;
+    let result = colorLists.filter(
+      elcolorList => elcolorList.rangeColor.toLowerCase() === domainColor
+    );
+    return result.length >= 1 ? true : false;
   }
 
   handleEditSubmit = (domainColor, rangeColor, originalName) => {
