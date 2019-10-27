@@ -10,7 +10,9 @@ DICTIONARY APP
 <img width="1320" alt="ภาพหน้าจอ 2019-10-27 เวลา 18 32 49" src="https://user-images.githubusercontent.com/29822960/67638840-65c52c80-f8e9-11e9-8d0c-0577fc7e6d7c.png">
 
 <h5>Check if domain color entered is used as range color before</h5>
-<img width="1317" alt="ภาพหน้าจอ 2019-10-27 เวลา 18 34 18" src="https://user-images.githubusercontent.com/29822960/67638855-9ad17f00-f8e9-11e9-8f78-9bcfa20e6a7c.png">
+<img width="1318" alt="ภาพหน้าจอ 2019-10-27 เวลา 18 34 43" src="https://user-images.githubusercontent.com/29822960/67638886-edab3680-f8e9-11e9-8bd3-cfab83c01261.png">
+
+
 
 
 
