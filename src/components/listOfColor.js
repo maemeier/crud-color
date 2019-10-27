@@ -88,20 +88,24 @@ class ListOfColor extends Component {
 
     //  add conditions (now alert work!)
     if (!(domainColor.length > 1 && rangeColor.length > 1)) {
-      alert("Domain and range color cannot be emtpy");
+      alert("Domain and range cannot be empty 😊");
     } else if (this.isDuplicate(domain, range, editColors)) {
       //fixd save
-      alert("duplicate");
+      alert("Both domain and range color entered are already added before");
     } else if (this.isFork(domain, editColors)) {
-      alert("Fork");
+      alert(
+        "The domain color entered are already in use with another range color "
+      );
     } else if (this.isCycle(domain, range, editColors)) {
-      alert("cycle");
+      alert(
+        "Both domain and range color entered are already in use as a mapped pair combination"
+      );
     } else if (this.isChain(range, editColors)) {
-      alert("chain");
+      alert("The domain color entered is already in use as range color");
     } else {
       this.props.handleEditSubmit(
-        domainColor,
-        rangeColor,
+        domainColor.trim(),
+        rangeColor.trim(),
         this.props.domainColor
       );
       this.setState({ isUpdated: false });
