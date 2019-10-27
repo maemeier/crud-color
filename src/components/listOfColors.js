@@ -44,8 +44,9 @@ class listOfColors extends Component {
 
   handleAddColor = (domainColor, rangeColor) => {
     // turn to lowercase
-    let domain = domainColor.toLowerCase();
-    let range = rangeColor.toLowerCase();
+    // test trim white space
+    let domain = domainColor.trim().toLowerCase();
+    let range = rangeColor.trim().toLowerCase();
 
     //check if user add domain or range color
 
