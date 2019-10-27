@@ -1,3 +1,12 @@
+DICTIONARY APP
+Add new color
+
+<img width="1319" alt="ภาพหน้าจอ 2019-10-27 เวลา 18 32 00" src="https://user-images.githubusercontent.com/29822960/67638793-00713b80-f8e9-11e9-8eda-db35cbe5f789.png">
+
+
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
