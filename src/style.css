@@ -1,6 +1,19 @@
 body {
   background-color: #e1e3ed;
 }
+.header {
+  width: auto;
+  height: 73px;
+  background-color: #2e303a;
+  color: white;
+}
+
+h4 {
+  margin-left: 100px;
+  margin-top: 0px;
+  padding-top: 25px;
+  text-transform: uppercase;
+}
 .wrapper {
   height: 1000px;
   border-radius: 10px;
@@ -29,9 +42,6 @@ h2 {
   height: 200px;
   margin-left: 50px;
   border-radius: 5px;
-  box-shadow: 9px 11px 5px -7px rgba(0, 0, 0, 0.21);
-  -webkit-box-shadow: 9px 11px 5px -7px rgba(0, 0, 0, 0.21);
-  -moz-box-shadow: 9px 11px 5px -7px rgba(0, 0, 0, 0.21);
 }
 
 input {
@@ -40,9 +50,13 @@ input {
   outline: none;
   background-color: #f3f5fa;
   width: 100px;
-  height: 20px;
+  height: 25px;
   padding-left: 10px;
-  margin-left: 10px;
+  float: right;
+  clear: both;
+  margin-right: 45px;
+  margin-top: 1px;
+  padding-top: 3px;
 }
 
 .addProduct {
@@ -83,9 +97,10 @@ table {
   text-align: center;
 }
 strong {
-  margin-top: 20px;
+  margin-top: 2px;
   color: #102f63;
 }
+
 .descriptionName {
   text-align: center;
 }
@@ -157,10 +172,4 @@ tr:nth-child(even) {
   margin-bottom: 15px;
   font-size: 13px;
   border: none;
-}
-
-.header {
-  width: auto;
-  height: 70px;
-  background-color: #2e303a;
 }

@@ -35,7 +35,6 @@ class App extends Component {
   }
   componentWillMount() {
     const colorLists = this.state.colorLists;
-    // this.setState({ colorList });
   }
 
   componentDidUpdate() {
@@ -44,15 +43,14 @@ class App extends Component {
 
   handleAddColor = (domainColor, rangeColor) => {
     const { colorLists } = this.state;
-
-    // case sensitive
+    // check if name is nameIsAvailable
     let domain = domainColor.toLowerCase();
     let range = rangeColor.toLowerCase();
 
-    // check if name is color already used
-
-    if (domainColor === domainColor) {
-      alert("Please add domain color && range color 😊");
+    if (this.isDuplicate(domain, range)) {
+      alert("You are going to duplicate domain and range color 😊");
+    } else if (this.isCycle(domain, range)) {
+      alert("You are going to swap the doman and range color 😊");
     } else {
       this.setState({
         colorLists: [
@@ -65,6 +63,26 @@ class App extends Component {
       });
     }
   };
+
+  isDuplicate(domainColor, rangeColor) {
+    const { colorLists } = this.state;
+    let checkColor = colorLists.filter(
+      colorList =>
+        colorList.domainColor.toLowerCase() === domainColor &&
+        colorList.rangeColor.toLowerCase() === rangeColor
+    );
+    return checkColor;
+  }
+
+  isCycle(domainColor, rangeColor) {
+    const { colorLists } = this.state;
+    let checkColor = colorLists.filter(
+      colorList =>
+        colorList.domainColor.toLowerCase() === rangeColor &&
+        colorList.rangeColor === domainColor
+    );
+    return checkColor;
+  }
 
   handleEditSubmit = (domainColor, rangeColor, originalName) => {
     const { colorLists } = this.state;

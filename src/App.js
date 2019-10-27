@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 import ColorLists from "./components/colorLists";
-import Footer from "./components/footer";
+import Header from "./components/header";
 import "./style.css";
 
 class App extends Component {
   render() {
     return (
       <div>
+        <Header />
         <ColorLists />
-        <Footer />
       </div>
     );
   }
