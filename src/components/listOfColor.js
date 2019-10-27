@@ -104,7 +104,7 @@ class ListOfColor extends Component {
       alert(
         "Both domain and range color entered are already in use as a mapped pair combination"
       );
-    } else if (this.isChain(range, editColors)) {
+    } else if (this.isChain(domain, editColors)) {
       alert("The domain color entered is already in use as range color");
     } else {
       this.props.handleEditSubmit(
