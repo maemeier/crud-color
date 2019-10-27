@@ -82,7 +82,7 @@ p {
   margin-bottom: 15px;
   text-align: center;
   font-weight: bold;
-  color: #426bdf;
+  color: #182f5f;
   text-transform: uppercase;
 }
 
@@ -129,10 +129,14 @@ tr:nth-child(even) {
   font-size: 13px;
   border: none;
   width: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+}
+.editButton:hover {
+  background-color: #42464f;
 }
 
 .editData {
-  background: #2e303a;
+  background: #5b616f;
   color: white;
   font-size: 16px;
   margin: auto;
@@ -149,6 +153,10 @@ tr:nth-child(even) {
   font-size: 13px;
   width: 60px;
   border: none;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+}
+.deleteButton:hover {
+  background-color: #bf4619;
 }
 
 .updateButton {
@@ -160,8 +168,11 @@ tr:nth-child(even) {
   font-size: 13px;
   border: none;
   width: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
 }
-
+.updateButton:hover {
+  background-color: #3c5217;
+}
 .submitButton {
   background: #426bdf;
   border-radius: 3px;
@@ -173,6 +184,10 @@ tr:nth-child(even) {
   font-size: 13px;
   width: 45px;
   border: none;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+}
+.submitButton:hover {
+  background-color: #324891;
 }
 .cancleButton {
   background-color: none;
