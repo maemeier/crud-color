@@ -47,7 +47,7 @@ class ListOfColor extends Component {
   isFork(domainColor) {
     const { colorLists } = this.state;
     let result = colorLists.filter(
-      elcolorList => elcolorList.domainColor.toLowerCase() === domainColor
+      colorList => colorList.domainColor.toLowerCase() === domainColor
     );
     return result.length >= 1 ? true : false;
   }
@@ -55,14 +55,13 @@ class ListOfColor extends Component {
   isCycle(domainColor, rangeColor) {
     const { colorLists } = this.state;
     let result = colorLists.filter(
-      elcolorList =>
-        elcolorList.domainColor.toLowerCase() === rangeColor &&
-        elcolorList.rangeColor.toLowerCase() === domainColor
+      colorList =>
+        colorList.domainColor.toLowerCase() === rangeColor &&
+        colorList.rangeColor.toLowerCase() === domainColor
     );
     return result.length >= 1 ? true : false;
   }
 
-  //chain works sometime why??????
   isChain(domainColor) {
     const { colorLists } = this.state;
     let result = colorLists.filter(
@@ -72,14 +71,29 @@ class ListOfColor extends Component {
   }
 
   handleEditSave = () => {
-    this.props.handleEditSubmit(
-      this.state.domainColor,
-      this.state.rangeColor,
-      this.props.domainColor
-    );
-    this.setState({ isUpdated: false });
-  };
+    let { domainColor, rangeColor } = this.state;
+    // white space and lowercase
+    // add conditions before save
 
+    let domain = domainColor.trim().toLowerCase();
+    let range = rangeColor.trim().toLowerCase();
+    // import data
+    let colorLists = JSON.parse(localStorage.getItem("colorLists"));
+    // check if edit colors match the color in data
+    let editColors = colorLists.filter(
+      colorList =>
+        colorList.domainColor !== this.props.domainColor &&
+        colorList.rangeColor !== this.props.rangeColor
+    );
+
+    //  add conditions (alert doesn't work!)
+    if (!(domainColor.length > 1 && rangeColor.length > 1)) {
+      alert("Domain and range color cannot be emtpy");
+    } else {
+      this.props.handleEditSubmit(domainColor, rangeColor, domainColor);
+      this.setState({ isUpdated: false });
+    }
+  };
   render() {
     const { domainColor, rangeColor } = this.props;
     return (
