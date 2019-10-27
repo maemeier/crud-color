@@ -26,34 +26,50 @@ class ListOfColor extends Component {
   ) => {
     const { colorLists } = this.state;
 
-    // move all conditions here
-    let nameIsAvailable = false;
-    colorLists.forEach(x => {
-      if (x.domainColor === domainColor) nameIsAvailable = true;
-      if (x.domainColor === rangeColor) nameIsAvailable = true;
-      if (x.rangeColor === domainColor) nameIsAvailable = true;
-    });
-
-    if (!nameIsAvailable) {
-      this.setState({
-        colorLists: [
-          ...this.state.colorLists,
-          {
-            domainColor,
-            rangeColor
-          }
-        ]
-      });
-    } else {
-      alert("The domain or range is already added 😊");
-    }
-
     this.setState({ isUpdated: true });
   };
 
   handleInputChange = (domainColor, value) => {
     this.setState({ [domainColor]: value });
   };
+
+  isDuplicate(domainColor, rangeColor) {
+    const { colorLists } = this.state;
+    let result = colorLists.filter(
+      colorList =>
+        colorList.domainColor.toLowerCase() === domainColor &&
+        colorList.rangeColor.toLowerCase() === rangeColor
+    );
+
+    return result.length >= 1 ? true : false;
+  }
+
+  isFork(domainColor) {
+    const { colorLists } = this.state;
+    let result = colorLists.filter(
+      elcolorList => elcolorList.domainColor.toLowerCase() === domainColor
+    );
+    return result.length >= 1 ? true : false;
+  }
+
+  isCycle(domainColor, rangeColor) {
+    const { colorLists } = this.state;
+    let result = colorLists.filter(
+      elcolorList =>
+        elcolorList.domainColor.toLowerCase() === rangeColor &&
+        elcolorList.rangeColor.toLowerCase() === domainColor
+    );
+    return result.length >= 1 ? true : false;
+  }
+
+  //chain works sometime why??????
+  isChain(domainColor) {
+    const { colorLists } = this.state;
+    let result = colorLists.filter(
+      colorList => colorList.rangeColor.toLowerCase() === domainColor
+    );
+    return result.length >= 1 ? true : false;
+  }
 
   handleEditSave = () => {
     this.props.handleEditSubmit(
