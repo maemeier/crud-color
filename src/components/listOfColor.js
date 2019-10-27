@@ -96,6 +96,8 @@ class ListOfColor extends Component {
       alert("Fork");
     } else if (this.isCycle(domain, range, editColors)) {
       alert("cycle");
+    } else if (this.isChain(range, editColors)) {
+      alert("chain");
     } else {
       this.props.handleEditSubmit(
         domainColor,
