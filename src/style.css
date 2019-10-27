@@ -82,7 +82,7 @@ p {
   margin-bottom: 15px;
   text-align: center;
   font-weight: bold;
-  color: #102f63;
+  color: #426bdf;
   text-transform: uppercase;
 }
 
@@ -123,20 +123,21 @@ tr:nth-child(even) {
 
 .editButton {
   background: #5b616f;
-
   border-radius: 3px;
   color: white;
-  display: block;
-  margin: auto;
+  margin: none;
   font-size: 13px;
   border: none;
+  width: 45px;
 }
 
 .editData {
-  background-color: #40444d;
+  background: #2e303a;
   color: white;
-  font-weight: bold;
-  padding-left: 10px;
+  font-size: 16px;
+  margin: auto;
+  text-align: center;
+  align-self: center;
 }
 
 .deleteButton {
@@ -146,18 +147,19 @@ tr:nth-child(even) {
   display: block;
   margin: auto;
   font-size: 13px;
+  width: 60px;
   border: none;
 }
 
 .updateButton {
   background: #4d7902;
   border-radius: 3px;
-
   color: white;
   display: block;
   margin: auto;
   font-size: 13px;
   border: none;
+  width: 45px;
 }
 
 .submitButton {
@@ -169,5 +171,14 @@ tr:nth-child(even) {
   margin-top: 15px;
   margin-bottom: 15px;
   font-size: 13px;
+  width: 45px;
   border: none;
+}
+.cancleButton {
+  background-color: none;
+  border-radius: 3px;
+  border-color: #868686;
+  color: #646464;
+  font-size: 13px;
+  width: 60px;
 }

@@ -150,12 +150,12 @@ class ListOfColor extends Component {
 
             <td>
               <button className="updateButton" onClick={this.handleEditSave}>
-                Save
+                save
               </button>
             </td>
             <td>
-              <button className="deleteButton" onClick={this.handleCancleColor}>
-                Cancle
+              <button className="cancleButton" onClick={this.handleCancleColor}>
+                cancle
               </button>
             </td>
             <td></td>
