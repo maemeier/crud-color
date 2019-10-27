@@ -1,5 +1,5 @@
 DICTIONARY APP
-Add new color
+<h5>Add new color</h5>
 
 <img width="1319" alt="ภาพหน้าจอ 2019-10-27 เวลา 18 32 00" src="https://user-images.githubusercontent.com/29822960/67638793-00713b80-f8e9-11e9-8eda-db35cbe5f789.png">
 
