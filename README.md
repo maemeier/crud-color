@@ -12,6 +12,8 @@ DICTIONARY APP
 <h5>Check if domain color entered is used as range color before</h5>
 <img width="1318" alt="ภาพหน้าจอ 2019-10-27 เวลา 18 34 43" src="https://user-images.githubusercontent.com/29822960/67638886-edab3680-f8e9-11e9-8bd3-cfab83c01261.png">
 
+<h5>Check if domain color entered is already in use with another range color</h5>
+<img width="1317" alt="ภาพหน้าจอ 2019-10-27 เวลา 18 34 18" src="https://user-images.githubusercontent.com/29822960/67638913-4084ee00-f8ea-11e9-9582-962a8c6d1803.png">
 
 
 
