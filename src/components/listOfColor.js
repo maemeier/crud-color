@@ -18,6 +18,10 @@ class ListOfColor extends Component {
     this.setState({ isUpdated: true });
   };
 
+  handleCancleColor = () => {
+    this.setState({ isUpdated: false });
+  };
+
   handleEditSubmit = (
     handleEditSubmit,
     domainColor,
@@ -150,8 +154,8 @@ class ListOfColor extends Component {
               </button>
             </td>
             <td>
-              <button className="deleteButton" onClick={this.handleDeleteColor}>
-                Delete
+              <button className="deleteButton" onClick={this.handleCancleColor}>
+                Cancle
               </button>
             </td>
             <td></td>
