@@ -42,15 +42,15 @@ class App extends Component {
   }
 
   handleAddColor = (domainColor, rangeColor) => {
-    const { colorLists } = this.state;
-    // check if name is nameIsAvailable
-    let domain = domainColor.toLowerCase();
-    let range = rangeColor.toLowerCase();
-
-    if (this.isDuplicate(domain, range)) {
-      alert("You are going to duplicate domain and range color 😊");
-    } else if (this.isCycle(domain, range)) {
-      alert("You are going to swap the doman and range color 😊");
+    //check if user add domain or range color
+    if (!(domainColor.length > 1 && rangeColor.length > 1)) {
+      alert("Please add domain color && range color 😊");
+    } else if (this.isCycle()) {
+      alert("cycle");
+    } else if (this.isDuplicate()) {
+      alert("duplicate");
+    } else if (this.isChain()) {
+      alert("chain");
     } else {
       this.setState({
         colorLists: [
@@ -66,22 +66,30 @@ class App extends Component {
 
   isDuplicate(domainColor, rangeColor) {
     const { colorLists } = this.state;
-    let checkColor = colorLists.filter(
+    let checkDuplicate = colorLists.filter(
       colorList =>
-        colorList.domainColor.toLowerCase() === domainColor &&
-        colorList.rangeColor.toLowerCase() === rangeColor
+        colorList.domainColor === domainColor &&
+        colorList.rangeColor === rangeColor
     );
-    return checkColor;
+    return checkDuplicate;
   }
 
   isCycle(domainColor, rangeColor) {
     const { colorLists } = this.state;
-    let checkColor = colorLists.filter(
+    let checkCycle = colorLists.filter(
       colorList =>
-        colorList.domainColor.toLowerCase() === rangeColor &&
+        colorList.domainColor === rangeColor &&
         colorList.rangeColor === domainColor
     );
-    return checkColor;
+    return checkCycle;
+  }
+
+  isChain(domainColor) {
+    const { colorLists } = this.state;
+    let checkChain = colorLists.filter(
+      colorList => colorList.rangeColor === domainColor
+    );
+    return checkChain;
   }
 
   handleEditSubmit = (domainColor, rangeColor, originalName) => {
