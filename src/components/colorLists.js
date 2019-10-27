@@ -45,12 +45,14 @@ class App extends Component {
     //check if user add domain or range color
     if (!(domainColor.length > 1 && rangeColor.length > 1)) {
       alert("Please add domain color && range color 😊");
-    } else if (this.isCycle()) {
+    } else if (this.isCycle(domainColor, rangeColor)) {
       alert("cycle");
-    } else if (this.isDuplicate()) {
+    } else if (this.isDuplicate(domainColor, rangeColor)) {
       alert("duplicate");
-    } else if (this.isChain()) {
+    } else if (this.isChain(rangeColor)) {
       alert("chain");
+    } else if (this.isFork(domainColor)) {
+      alert("fork");
     } else {
       this.setState({
         colorLists: [
@@ -90,6 +92,14 @@ class App extends Component {
       colorList => colorList.rangeColor === domainColor
     );
     return checkChain;
+  }
+
+  isFork(domainColor) {
+    const { colorLists } = this.state;
+    let checkFork = colorLists.filter(
+      colorList => colorList.domainColor === domainColor
+    );
+    return checkFork;
   }
 
   handleEditSubmit = (domainColor, rangeColor, originalName) => {
