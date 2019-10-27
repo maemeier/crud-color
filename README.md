@@ -15,6 +15,8 @@ DICTIONARY APP
 <h5>Check if domain color entered is already in use with another range color</h5>
 <img width="1317" alt="ภาพหน้าจอ 2019-10-27 เวลา 18 34 18" src="https://user-images.githubusercontent.com/29822960/67638913-4084ee00-f8ea-11e9-9582-962a8c6d1803.png">
 
+<h3>Case sensitive ✅</h3>
+<h3>White space ✅</h3>
 
 
 
