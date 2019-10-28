@@ -122,16 +122,22 @@ class listOfColors extends Component {
 
   isCycle(domainColor, rangeColor) {
     const { colorLists } = this.state;
-    let result = colorLists.filter(
-      colorList =>
+    const offendingRows = [];
+
+    let result = colorLists.filter((colorList, idx) => {
+      if (
         colorList.domainColor.toLowerCase() === rangeColor &&
         colorList.rangeColor.toLowerCase() === domainColor
-    );
-
+      ) {
+        offendingRows.push(idx);
+        return true;
+      }
+      return false;
+    });
+    this.highlightOffendingRows(offendingRows, "HIGH");
     return result.length >= 1 ? true : false;
   }
 
-  //finally chain work T T
   isChain(domainColor) {
     const { colorLists } = this.state;
     let result = colorLists.filter(
