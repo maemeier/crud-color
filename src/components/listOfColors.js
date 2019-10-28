@@ -118,7 +118,7 @@ class listOfColors extends Component {
       }
       return false;
     });
-    this.highlightOffendingRows(offendingRows, "LOW");
+    this.highlightOffendingRows(offendingRows, "MEDIUM");
     return result.length >= 1 ? true : false;
   }
 
@@ -153,7 +153,7 @@ class listOfColors extends Component {
       return false;
     });
 
-    this.highlightOffendingRows(offendingRows, "LOW");
+    this.highlightOffendingRows(offendingRows, "MEDIUM");
     return result.length >= 1 ? true : false;
   }
 

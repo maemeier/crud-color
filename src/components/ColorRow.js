@@ -121,8 +121,10 @@ class ColorRow extends Component {
   getBgColorBasedOnSeverity() {
     if (this.props.severity === "HIGH") {
       return "red";
+    } else if (this.props.severity === "MEDIUM") {
+      return "orange";
     }
-    return "orange";
+    return "#ffd500";
   }
 
   render() {
