@@ -4,17 +4,19 @@ DICTIONARY APP
 <img width="1319" alt="ภาพหน้าจอ 2019-10-27 เวลา 18 32 00" src="https://user-images.githubusercontent.com/29822960/67638793-00713b80-f8e9-11e9-8eda-db35cbe5f789.png">
 
 <h5> Check duplicate doman and range colors </h5>
-<img width="1315" alt="ภาพหน้าจอ 2019-10-28 เวลา 13 00 08" src="https://user-images.githubusercontent.com/29822960/67679549-9f4d7480-f989-11e9-8ce1-4c1438dd7507.png">
+<img width="1313" alt="ภาพหน้าจอ 2019-10-28 เวลา 16 25 05" src="https://user-images.githubusercontent.com/29822960/67692249-2e658700-f9a0-11e9-85b5-f2b58db99a77.png">
 
 
 <h5> Check mapped pair combination</h5>
-<img width="1320" alt="ภาพหน้าจอ 2019-10-27 เวลา 18 32 49" src="https://user-images.githubusercontent.com/29822960/67638840-65c52c80-f8e9-11e9-8d0c-0577fc7e6d7c.png">
+<img width="1312" alt="ภาพหน้าจอ 2019-10-28 เวลา 16 28 49" src="https://user-images.githubusercontent.com/29822960/67692182-17269980-f9a0-11e9-938b-f6c27fa98afe.png">
+
 
 <h5>Check if domain color entered is used as range color before</h5>
 <img width="1318" alt="ภาพหน้าจอ 2019-10-27 เวลา 18 34 43" src="https://user-images.githubusercontent.com/29822960/67638886-edab3680-f8e9-11e9-8bd3-cfab83c01261.png">
 
 <h5>Check if domain color entered is already in use with another range color</h5>
-<img width="1317" alt="ภาพหน้าจอ 2019-10-27 เวลา 18 34 18" src="https://user-images.githubusercontent.com/29822960/67638913-4084ee00-f8ea-11e9-9582-962a8c6d1803.png">
+<img width="1315" alt="ภาพหน้าจอ 2019-10-28 เวลา 16 26 32" src="https://user-images.githubusercontent.com/29822960/67692308-42a98400-f9a0-11e9-987f-c4dca755ec64.png">
+
 
 <h3>Case sensitive ✅</h3>
 <h3>White space ✅</h3>
