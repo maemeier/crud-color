@@ -99,7 +99,6 @@ class listOfColors extends Component {
         offendingRows.push(idx);
         return true;
       }
-
       return false;
     });
     this.highlightOffendingRows(offendingRows, "LOW");
@@ -108,9 +107,16 @@ class listOfColors extends Component {
 
   isFork(domainColor) {
     const { colorLists } = this.state;
-    let result = colorLists.filter(
-      colorList => colorList.domainColor.toLowerCase() === domainColor
-    );
+    const offendingRows = [];
+
+    let result = colorLists.filter((colorList, idx) => {
+      if (colorList.domainColor.toLowerCase() === domainColor) {
+        offendingRows.push(idx);
+        return true;
+      }
+      return false;
+    });
+    this.highlightOffendingRows(offendingRows, "LOW");
     return result.length >= 1 ? true : false;
   }
 
