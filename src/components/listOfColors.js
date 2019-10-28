@@ -87,6 +87,7 @@ class listOfColors extends Component {
     });
   }
 
+  // function and hightlight passed
   isDuplicate(domainColor, rangeColor) {
     const { colorLists } = this.state;
     const offendingRows = [];
@@ -105,6 +106,7 @@ class listOfColors extends Component {
     return result.length >= 1 ? true : false;
   }
 
+  // function and hightlight passed
   isFork(domainColor) {
     const { colorLists } = this.state;
     const offendingRows = [];
@@ -120,6 +122,7 @@ class listOfColors extends Component {
     return result.length >= 1 ? true : false;
   }
 
+  // function and hightlight passed
   isCycle(domainColor, rangeColor) {
     const { colorLists } = this.state;
     const offendingRows = [];
@@ -138,11 +141,19 @@ class listOfColors extends Component {
     return result.length >= 1 ? true : false;
   }
 
+  // function and hightlight passed
   isChain(domainColor) {
     const { colorLists } = this.state;
-    let result = colorLists.filter(
-      colorList => colorList.rangeColor.toLowerCase() === domainColor
-    );
+    const offendingRows = [];
+    let result = colorLists.filter((colorList, idx) => {
+      if (colorList.rangeColor.toLowerCase() === domainColor) {
+        offendingRows.push(idx);
+        return true;
+      }
+      return false;
+    });
+
+    this.highlightOffendingRows(offendingRows, "LOW");
     return result.length >= 1 ? true : false;
   }
 
