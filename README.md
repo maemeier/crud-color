@@ -4,7 +4,8 @@ DICTIONARY APP
 <img width="1319" alt="ภาพหน้าจอ 2019-10-27 เวลา 18 32 00" src="https://user-images.githubusercontent.com/29822960/67638793-00713b80-f8e9-11e9-8eda-db35cbe5f789.png">
 
 <h5> Check duplicate doman and range colors </h5>
-<img width="1318" alt="ภาพหน้าจอ 2019-10-27 เวลา 18 32 26" src="https://user-images.githubusercontent.com/29822960/67638826-39a9ab80-f8e9-11e9-9326-72b9aabe8e5d.png">
+<img width="1315" alt="ภาพหน้าจอ 2019-10-28 เวลา 13 00 08" src="https://user-images.githubusercontent.com/29822960/67679549-9f4d7480-f989-11e9-8ce1-4c1438dd7507.png">
+
 
 <h5> Check mapped pair combination</h5>
 <img width="1320" alt="ภาพหน้าจอ 2019-10-27 เวลา 18 32 49" src="https://user-images.githubusercontent.com/29822960/67638840-65c52c80-f8e9-11e9-8d0c-0577fc7e6d7c.png">
