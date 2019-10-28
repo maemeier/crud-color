@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "../style.css";
 
-class ListOfColor extends Component {
+class ColorRow extends Component {
   state = {
     isUpdated: false,
     colorLists: this.props.colorLists,
@@ -95,17 +95,19 @@ class ListOfColor extends Component {
       alert("Domain and range cannot be empty 😊");
     } else if (this.isDuplicate(domain, range, editColors)) {
       //fixd save
-      alert("Both domain and range color entered are already added before");
+      alert(
+        "Duplicate:Both domain and range color entered are already added before"
+      );
     } else if (this.isFork(domain, editColors)) {
       alert(
-        "The domain color entered are already in use with another range color "
+        "Fork:The domain color entered are already in use with another range color "
       );
     } else if (this.isCycle(domain, range, editColors)) {
       alert(
-        "Both domain and range color entered are already in use as a mapped pair combination"
+        "Cycle:Both domain and range color entered are already in use as a mapped pair combination"
       );
     } else if (this.isChain(domain, editColors)) {
-      alert("The domain color entered is already in use as range color");
+      alert("Chain:The domain color entered is already in use as range color");
     } else {
       this.props.handleEditSubmit(
         domainColor.trim(),
@@ -115,10 +117,22 @@ class ListOfColor extends Component {
       this.setState({ isUpdated: false });
     }
   };
+
+  getBgColorBasedOnSeverity() {
+    if (this.props.severity === "HIGH") {
+      return "red";
+    }
+    return "orange";
+  }
+
   render() {
-    const { domainColor, rangeColor } = this.props;
+    const { domainColor, rangeColor, isOffendingRow } = this.props;
     return (
-      <React.Fragment>
+      <tr
+        style={
+          isOffendingRow ? { background: this.getBgColorBasedOnSeverity() } : {}
+        }
+      >
         {this.state.isUpdated ? (
           <React.Fragment>
             <td>
@@ -178,8 +192,8 @@ class ListOfColor extends Component {
             </td>
           </React.Fragment>
         )}
-      </React.Fragment>
+      </tr>
     );
   }
 }
-export default ListOfColor;
+export default ColorRow;

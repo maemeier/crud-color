@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import ListOfColor from "./listOfColor";
+import ColorRow from "./ColorRow";
 import AddColor from "./addColor";
 
 import "../style.css";
@@ -16,7 +16,9 @@ const colorLists = [
 
 class listOfColors extends Component {
   state = {
-    colorLists: []
+    colorLists: [],
+    offendingRows: [],
+    severity: ""
   };
 
   // store data in localStorage
@@ -53,45 +55,61 @@ class listOfColors extends Component {
     if (!(domainColor.length > 1 && rangeColor.length > 1)) {
       alert("Domain and range cannot be empty 😊");
     } else if (this.isDuplicate(domain, range)) {
-      alert("Both domain and range color entered are already added before");
+      alert(
+        "Duplicate:Both domain and range color entered are already added before"
+      );
     } else if (this.isFork(domain)) {
       alert(
-        "The domain color entered are already in use with another range color "
+        "Fork: The domain color entered are already in use with another range color "
       );
     } else if (this.isCycle(domain, range)) {
       alert(
-        "Both domain and range color entered are already in use as a mapped pair combination"
+        "Cycle: Both domain and range color entered are already in use as a mapped pair combination"
       );
     } else if (this.isChain(domain)) {
-      alert("The domain color entered is already in use as range color");
-    } else {
-      this.setState({
-        colorLists: [
-          ...this.state.colorLists,
-          {
-            domainColor,
-            rangeColor
-          }
-        ]
-      });
+      alert("Chain:The domain color entered is already in use as range color");
     }
+    this.setState({
+      colorLists: [
+        ...this.state.colorLists,
+        {
+          domainColor,
+          rangeColor
+        }
+      ]
+    });
   };
+
+  highlightOffendingRows(rows, severity = "LOW") {
+    this.setState({
+      offendingRows: rows,
+      severity
+    });
+  }
 
   isDuplicate(domainColor, rangeColor) {
     const { colorLists } = this.state;
-    let result = colorLists.filter(
-      colorList =>
+    const offendingRows = [];
+
+    let result = colorLists.filter((colorList, idx) => {
+      if (
         colorList.domainColor.toLowerCase() === domainColor &&
         colorList.rangeColor.toLowerCase() === rangeColor
-    );
+      ) {
+        offendingRows.push(idx);
+        return true;
+      }
 
+      return false;
+    });
+    this.highlightOffendingRows(offendingRows, "LOW");
     return result.length >= 1 ? true : false;
   }
 
   isFork(domainColor) {
     const { colorLists } = this.state;
     let result = colorLists.filter(
-      elcolorList => elcolorList.domainColor.toLowerCase() === domainColor
+      colorList => colorList.domainColor.toLowerCase() === domainColor
     );
     return result.length >= 1 ? true : false;
   }
@@ -99,10 +117,11 @@ class listOfColors extends Component {
   isCycle(domainColor, rangeColor) {
     const { colorLists } = this.state;
     let result = colorLists.filter(
-      elcolorList =>
-        elcolorList.domainColor.toLowerCase() === rangeColor &&
-        elcolorList.rangeColor.toLowerCase() === domainColor
+      colorList =>
+        colorList.domainColor.toLowerCase() === rangeColor &&
+        colorList.rangeColor.toLowerCase() === domainColor
     );
+
     return result.length >= 1 ? true : false;
   }
 
@@ -152,18 +171,18 @@ class listOfColors extends Component {
                   <th className="headerName">Delete</th>
                 </thead>
 
-                {this.state.colorLists.map(colorList => {
+                {this.state.colorLists.map((colorList, rowIdx) => {
                   return (
-                    <tr>
-                      <ListOfColor
-                        key={colorList.domainColor}
-                        domainColor={colorList.domainColor}
-                        rangeColor={colorList.rangeColor}
-                        colorLists={colorLists}
-                        handleDeleteColor={this.handleDeleteColor}
-                        handleEditSubmit={this.handleEditSubmit}
-                      />
-                    </tr>
+                    <ColorRow
+                      key={colorList.domainColor}
+                      domainColor={colorList.domainColor}
+                      rangeColor={colorList.rangeColor}
+                      colorLists={colorLists}
+                      handleDeleteColor={this.handleDeleteColor}
+                      handleEditSubmit={this.handleEditSubmit}
+                      isOffendingRow={this.state.offendingRows.includes(rowIdx)}
+                      severity={this.state.severity}
+                    />
                   );
                 })}
               </table>
