@@ -122,7 +122,7 @@ class ColorRow extends Component {
     if (this.props.severity === "HIGH") {
       return "#ff4040";
     } else if (this.props.severity === "MEDIUM") {
-      return "#ffba00";
+      return "#FF7F50";
     }
     return "#fada5e";
   }
