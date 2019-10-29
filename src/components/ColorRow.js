@@ -28,8 +28,6 @@ class ColorRow extends Component {
     rangeColor,
     originalName
   ) => {
-    const { colorLists } = this.state;
-
     this.setState({ isUpdated: true });
   };
 
@@ -132,7 +130,13 @@ class ColorRow extends Component {
     return (
       <tr
         style={
-          isOffendingRow ? { background: this.getBgColorBasedOnSeverity() } : {}
+          isOffendingRow
+            ? {
+                background: this.getBgColorBasedOnSeverity(),
+                color: "white",
+                fontWeight: "bold"
+              }
+            : {}
         }
       >
         {this.state.isUpdated ? (

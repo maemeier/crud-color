@@ -37,7 +37,7 @@ class listOfColors extends Component {
     }
   }
   componentWillMount() {
-    const colorLists = this.state.colorLists;
+    // const colorLists = this.state.colorLists;
   }
 
   componentDidUpdate() {
@@ -187,27 +187,32 @@ class listOfColors extends Component {
             <div className="displayBox">
               <table>
                 <thead>
-                  <th className="headerName">Domain Color</th>
-                  <th className="headerName">Range Color</th>
+                  <tr>
+                    <th className="headerName">Domain Color</th>
+                    <th className="headerName">Range Color</th>
 
-                  <th className="headerName">Edit</th>
-                  <th className="headerName">Delete</th>
+                    <th className="headerName">Edit</th>
+                    <th className="headerName">Delete</th>
+                  </tr>
                 </thead>
-
-                {this.state.colorLists.map((colorList, rowIdx) => {
-                  return (
-                    <ColorRow
-                      key={colorList.domainColor}
-                      domainColor={colorList.domainColor}
-                      rangeColor={colorList.rangeColor}
-                      colorLists={colorLists}
-                      handleDeleteColor={this.handleDeleteColor}
-                      handleEditSubmit={this.handleEditSubmit}
-                      isOffendingRow={this.state.offendingRows.includes(rowIdx)}
-                      severity={this.state.severity}
-                    />
-                  );
-                })}
+                <tbody>
+                  {this.state.colorLists.map((colorList, rowIdx) => {
+                    return (
+                      <ColorRow
+                        key={colorList.domainColor}
+                        domainColor={colorList.domainColor}
+                        rangeColor={colorList.rangeColor}
+                        colorLists={colorLists}
+                        handleDeleteColor={this.handleDeleteColor}
+                        handleEditSubmit={this.handleEditSubmit}
+                        isOffendingRow={this.state.offendingRows.includes(
+                          rowIdx
+                        )}
+                        severity={this.state.severity}
+                      />
+                    );
+                  })}
+                </tbody>
               </table>
             </div>
           </div>
